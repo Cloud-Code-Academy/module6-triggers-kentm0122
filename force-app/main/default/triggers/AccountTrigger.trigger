@@ -4,6 +4,7 @@ switch on Trigger.operationType {
         AccountTriggerHandler.beforeInsert(Trigger.new);
         }
     when AFTER_INSERT {
+        AccountTriggerHandler.afterInsert(Trigger.new);
         }
     }
 }

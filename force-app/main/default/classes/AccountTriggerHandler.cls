@@ -18,7 +18,26 @@ public class AccountTriggerHandler {
         }
         if (currAccount.BillingCountry == null && currAccount.ShippingCountry != null) {
             currAccount.BillingCountry = currAccount.ShippingCountry;
-        }   
+        } 
+        
+        if (currAccount.Phone != null && currAccount.Website != null && currAccount.Fax != null){
+            currAccount.Rating = 'Hot';
+        }
+        }
+    }
+    public static void afterInsert(List<Account> newAccounts){
+        Contact[] contactToCreate  = new List<Contact>();
+        String lastName = 'DefaultContact';
+        String email = 'default@email.com';
+        for (Account currAccount : newAccounts) {
+            Contact newCont = new Contact();
+            newCont.LastName = lastName;
+            newCont.Email = email;
+            newCont.AccountId = currAccount.Id;
+            contactToCreate.add(newCont);
+        }
+        if (contactToCreate != null) {
+            insert contactToCreate;
         }
     }
 }
