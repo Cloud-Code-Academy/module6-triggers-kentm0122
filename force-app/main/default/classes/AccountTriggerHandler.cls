@@ -1,5 +1,5 @@
 public class AccountTriggerHandler {
-   public static void beforeInsert(List<Account> newAccounts){
+   public static void beforeInsert(List<Account> newAccounts) {
     for (Account currAccount : newAccounts) {
         if (currAccount.Type == null){
             currAccount.Type = 'Prospect';
