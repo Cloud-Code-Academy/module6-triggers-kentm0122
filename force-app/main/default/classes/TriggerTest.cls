@@ -380,7 +380,7 @@ public with sharing class TriggerTest {
                     AccountId = acc.Id,
                     Primary_Contact__c = null
                 );
-                opportunitiesToInsert.add(opp);
+                opportunitiesToInsert.add(opp);      
             }
             
         }
